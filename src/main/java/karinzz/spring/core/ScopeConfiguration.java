@@ -2,7 +2,7 @@ package karinzz.spring.core;
 
 import karinzz.spring.core.data.Bar;
 import karinzz.spring.core.data.Foo;
-import karinzz.spring.core.data.scope.DoubletonScope;
+import karinzz.spring.core.scope.DoubletonScope;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.context.annotation.Bean;

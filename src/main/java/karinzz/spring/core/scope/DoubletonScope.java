@@ -1,4 +1,4 @@
-package karinzz.spring.core.data.scope;
+package karinzz.spring.core.scope;
 
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
