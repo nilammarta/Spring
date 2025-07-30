@@ -1,5 +1,6 @@
 package karinzz.spring.core;
 
+import karinzz.spring.core.data.MultiFoo;
 import karinzz.spring.core.repository.CategoryRepository;
 import karinzz.spring.core.repository.CustomerRepository;
 import karinzz.spring.core.repository.ProductRepository;
@@ -61,5 +62,12 @@ public class ComponentTest {
 
         Assertions.assertSame(normalCustomerRepository, customerService.getNormalCustomerRepository());
         Assertions.assertSame(premiumCustomerRepository, customerService.getPremiumCustomerRepository());
+    }
+
+//    Melakukan test pada multifoo dimna menggunkana objectProfider<T> untuk mendapatkan bean Foo
+    @Test
+    void objectProvider(){
+        MultiFoo multiFoo = applicationContext.getBean(MultiFoo.class);
+        Assertions.assertEquals(3, multiFoo.getFoos().size());
     }
 }

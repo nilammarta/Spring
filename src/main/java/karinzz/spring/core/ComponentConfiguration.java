@@ -1,7 +1,9 @@
 package karinzz.spring.core;
 
+import karinzz.spring.core.data.MultiFoo;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages = {
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
         "karinzz.spring.core.repository",
         "karinzz.spring.core.configuration",
 })
+@Import(MultiFoo.class)
 public class ComponentConfiguration {
 
 }
