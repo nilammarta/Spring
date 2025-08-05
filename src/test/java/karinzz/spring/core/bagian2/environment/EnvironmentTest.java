@@ -1,4 +1,4 @@
-package karinzz.spring.core.environment;
+package karinzz.spring.core.bagian2.environment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 
+/**
+ * Environment tidak hanya bisa digunakan untuk mengakses Application Properties
+ * Environment juga bisa digunakan untuk mengakses data environment variable pada sistem operasi
+ */
 @SpringBootTest(classes = EnvironmentTest.TestApplication.class)
 public class EnvironmentTest {
 
