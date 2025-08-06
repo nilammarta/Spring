@@ -1,4 +1,4 @@
-package karinzz.spring.core.application.appproperties;
+package karinzz.spring.core.bagian2.appproperties;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
