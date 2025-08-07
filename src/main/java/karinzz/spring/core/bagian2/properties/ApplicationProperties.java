@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +21,10 @@ import java.util.Map;
 @Setter
 @ConfigurationProperties("application")
 public class ApplicationProperties {
+
+    private Date expiredDate;
+
+    private Duration defaultTimeout;
 
     private String name;
 
