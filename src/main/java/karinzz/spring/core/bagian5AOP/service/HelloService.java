@@ -11,8 +11,19 @@ public class HelloService {
         log.info("Call HelloService.hello()");
         return "Hello " + name;
     }
+
+    public String hello(String firstName, String lastName) {
+        log.info("Call HelloService.hello() with greeting");
+        return "Hello2 " + firstName + " " + lastName;
+    }
+
     public String bye(String name) {
         log.info("Call HelloService.bye()");
         return "Bye " + name;
     }
+
+    public void test(){
+        log.info("Call HelloService.test()");
+    }
+
 }

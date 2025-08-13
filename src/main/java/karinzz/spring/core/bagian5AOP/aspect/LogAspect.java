@@ -67,4 +67,66 @@ public class LogAspect {
             log.info("Around After executing " + className + ". " + methodName + "()");
         }
     }
+
+    /**
+     * Pointcut untuk method yang MEMILIKI parameter String
+     * Ini akan menangkap semua method di HelloService yang memiliki satu parameter bertipe String
+     */
+    @Pointcut("execution(* karinzz.spring.core.bagian5AOP.service.HelloService.*(java.lang.String))")
+    public void pointcutHelloServiceStringParam(){
+
+    }
+
+    /**
+     * Advice yang akan dijalankan sebelum method dengan parameter String
+     * Ini akan mencetak log dengan nilai parameter yang diterima oleh method tersebut
+     */
+    @Before("pointcutHelloServiceStringParam()")
+    public void logStringParameter(JoinPoint joinPoint) {
+        String value = (String) joinPoint.getArgs()[0];
+        log.info("Execute method with parameter: " + value);
+    }
+
+    /**
+     * Advice yang akan dijalankan sebelum method dengan parameter String
+     * dan akan menerima parameter tersebut sebagai argumen
+     * Ini akan mencetak log dengan nilai parameter yang diterima oleh method tersebut
+     * @param name
+     */
+    @Before("pointcutHelloServiceStringParam() && args(name)")
+    public void logStringParam(String name){
+        log.info("Execute method with parameter: " + name);
+    }
+
+    /**
+     * MULTIPLE POINTCUTS
+     */
+    @Pointcut("execution(* karinzz.spring.core.bagian5AOP.service.*.*(..))")
+    public void pointcutServicePackage() {
+        // Pointcut untuk semua method di package karinzz.spring.core.bagian5AOP.service
+    }
+
+    @Pointcut("bean(*Service)")
+    public void pointcutServiceBean() {
+        // Pointcut untuk semua bean yang ada di package karinzz.spring.core.bagian5AOP.service
+    }
+
+    @Pointcut("execution(public * *(..))")
+    public void pointcutPublicMethod() {
+        // Pointcut untuk semua method public di package karinzz.spring.core.bagian5AOP.service
+    }
+
+    // ini akan menggabungkan ketiga pointcut di atas
+    @Pointcut("pointcutServicePackage() && pointcutServiceBean() && pointcutPublicMethod()")
+    public void publicMethodForService(){
+
+    }
+
+    @Before("publicMethodForService()")
+    public void logAllPublicServiceMethods() {
+        log.info("Log for all service methods");
+    }
+
+
 }
+
